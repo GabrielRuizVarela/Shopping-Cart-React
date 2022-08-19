@@ -76,7 +76,7 @@ function Item({
           type="button"
           id="minusButton"
           onClick={() => {
-            if (state.quantity > 1) {
+            if (state.quantity > 0) {
               dispatch({ type: 'DECREMENT' });
             }
           }}
