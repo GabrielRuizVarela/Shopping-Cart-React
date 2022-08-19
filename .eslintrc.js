@@ -20,7 +20,7 @@ module.exports = {
     '@typescript-eslint',
   ],
   rules: {
-    'react/jsx-filename-extension': [1, { extensions: ['.ts', '.tsx'] }],
+    'react/jsx-filename-extension': [1, { extensions: ['.ts', '.tsx', '.jsx'] }],
     'import/extensions': [0, 'never'],
 
   },

@@ -68,8 +68,7 @@ function Item({
         <h3>{title}</h3>
         <p>{description}</p>
         <p>
-          $
-          {price}
+          {`$${price}`}
         </p>
       </div>
       <div className="item-addToCart">
