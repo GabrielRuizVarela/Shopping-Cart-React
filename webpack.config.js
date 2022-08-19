@@ -1,7 +1,6 @@
-const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
-
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 module.exports = {
   entry: './src/index.tsx',
@@ -17,33 +16,32 @@ module.exports = {
         test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
         include: path.resolve(__dirname, 'src/'),
-        plugins: [new TsconfigPathsPlugin()],
         resolve: {
           extensions: ['.ts', '.tsx', '.js', '.json'],
         },
         use: 'ts-loader',
       },
-      {
-        test: /\.jsx?$/,
-        // test: /\.(jsx|js)$/,
-        exclude: /node_modules/,
-        include: path.resolve(__dirname, 'src/'),
-        use:
-        {
-          loader: 'babel-loader',
-          options: {
-            presets: [
-              ['@babel/preset-env', {
-                targets: 'defaults',
-              }],
-              '@babel/preset-react',
-            ],
-          },
-        },
-        resolve: {
-          extensions: ['', '.js', '.jsx'],
-        },
-      },
+      // {
+      //   test: /\.tsx?$/,
+      //   // test: /\.(jsx|js)$/,
+      //   exclude: /node_modules/,
+      //   include: path.resolve(__dirname, 'src/'),
+      //   use:
+      //   {
+      //     loader: 'babel-loader',
+      //     options: {
+      //       presets: [
+      //         ['@babel/preset-env', {
+      //           targets: 'defaults',
+      //         }],
+      //         '@babel/preset-react',
+      //       ],
+      //     },
+      //   },
+      //   resolve: {
+      //     extensions: ['', '.js', '.jsx'],
+      //   },
+      // },
       {
         test: /\.(s(a|c)ss)$/,
         use: ['style-loader', 'css-loader', 'sass-loader'],
@@ -62,6 +60,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/index.html',
     }),
+    new TsconfigPathsPlugin(),
   ],
   devServer: {
     historyApiFallback: true,
