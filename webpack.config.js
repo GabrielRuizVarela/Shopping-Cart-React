@@ -22,8 +22,8 @@ module.exports = {
         use: 'ts-loader',
       },
       // {
-      //   test: /\.tsx?$/,
-      //   // test: /\.(jsx|js)$/,
+      //   // test: /\.tsx?$/,
+      //   test: /\.(jsx|js)$/,
       //   exclude: /node_modules/,
       //   include: path.resolve(__dirname, 'src/'),
       //   use:
@@ -51,8 +51,9 @@ module.exports = {
         type: 'asset/resource',
       },
       {
-        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        test: /\.(woff|woff2|eot|ttf|otf|fbx|obj|gltf|glb)$/i,
         type: 'asset/resource',
+        // include: path.resolve(__dirname, 'src/models'),
       },
     ],
   },
