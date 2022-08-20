@@ -1,50 +1,34 @@
 import * as three from 'three';
-import GUI from 'lil-gui';
 import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader';
-import { MTLLoader } from './MTLoader';
-import { OBJLoader } from './OBJLoader.js';
-import Model from '../models/IP12PRO1.obj';
-import Material from '../models/IP12PRO1.mtl';
-import Phone from '../models/iphone-glb/source/IPHONE12PRO BY DATSKETCH/IP12PRO.fbx';
+// import { GLTFLoader } from './GLTFLoader';
 import { OrbitControls } from './OrbitControls';
-import ColorGUIHelper from './ColorGUIHelper';
-import { GLTFLoader } from './GLTFLoader';
+import Phone from '../models/iphone-glb/source/IPHONE12PRO BY DATSKETCH/IP12PRO.fbx';
 
-function animation() {
-  // const mtloader = new MTLLoader();
-  // const objloader = new OBJLoader();
+async function animation() {
   const scene = new three.Scene();
-
-  // mtloader.load(Material, (mtl: any) => {
-  //   mtl.preload(mtl);
-  //   objloader.setMaterials(mtl.materials);
-  //   objloader.load(Model, (obj: any) => {
-  //     scene.add(obj);
-  //   });
-  // });
-
-  // const gltfLoader = new GLTFLoader();
-  // const url = Phone;
-  // gltfLoader.load(url, (gltf: any) => {
-  //   const root = gltf.scene;
-  //   scene.add(root);
-  // });
   const loader = new FBXLoader();
-  loader.load(Phone, (object: any) => {
-    scene.add(object);
-    // const root = object.scene;
-    // scene.add(root);
-  });
 
-  const fov = 75;
-  const aspect = 1;
+  const data = await loader.loadAsync(Phone);
+  const phoneModel = data.children[0];
+  phoneModel.scale.set(90, 50, 50);
+  // phoneModel.rotateZ(90 * Math.PI / 180);
+  console.log(phoneModel.scale);
+
+  const canvas = document.getElementById('canvas') || document.body;
+  scene.add(phoneModel);
+  const width = canvas.clientWidth;
+  const height = canvas.clientHeight;
+  const fov = 45;
+  const aspect = width / height;
   const near = 0.1;
-  const far = 100;
+  const far = 1000;
   const camera = new three.PerspectiveCamera(fov, aspect, near, far);
-  camera.position.set(10, 90, 10);
 
-  const controls = new OrbitControls(camera, document.body);
-  controls.target.set(0, 5, 0);
+  scene.add(camera);
+
+  const controls = new OrbitControls(camera, canvas);
+  // camera.position.set(100, 100, 100);
+  camera.position.set(0, 70, 0);
   controls.update();
 
   const color = 0xFFFFFF;
@@ -56,20 +40,10 @@ function animation() {
   // const light = new three.AmbientLight(color, intensity);
 
   scene.add(light, light2);
-  const gui = new GUI();
-  gui.addColor(new ColorGUIHelper(light, 'color'), 'value').name('color');
-  gui.add(light, 'intensity', 0, 2, 0.01);
-  // color = materialColor * light.color * light.intensity;
-
-  // loader.load(Model, (gltf) => {
-  //   scene.add(gltf.scene);
-  // }, undefined, (error) => {
-  //   console.error(error);
-  // });
   const renderer = new three.WebGLRenderer();
   renderer.setSize(window.innerWidth, window.innerHeight);
-  document.body.appendChild(renderer.domElement);
-  // renderer.render(scene, camera);
+  canvas.appendChild(renderer.domElement);
+  // camera.position.set(0, 0, 100);
   function animate() {
     requestAnimationFrame(animate);
     renderer.render(scene, camera);

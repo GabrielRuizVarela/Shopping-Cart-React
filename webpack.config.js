@@ -51,7 +51,7 @@ module.exports = {
         type: 'asset/resource',
       },
       {
-        test: /\.(woff|woff2|eot|ttf|otf|fbx|obj|gltf|glb)$/i,
+        test: /\.(woff|woff2|eot|ttf|otf|fbx|obj|bin|gltf|glb)$/i,
         type: 'asset/resource',
         // include: path.resolve(__dirname, 'src/models'),
       },
