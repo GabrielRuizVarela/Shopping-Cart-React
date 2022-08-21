@@ -3,7 +3,7 @@ import React, { useReducer } from 'react';
 import { Icon } from '@iconify/react';
 
 interface ItemProps {
-  title: string;
+  name: string;
   description: string;
   image: string;
   price: number;
@@ -57,7 +57,7 @@ function reducer(state: ItemState, action: ItemAction): ItemState {
 }
 
 function Item({
-  title, description, image, price,
+  name: title, description, image, price,
 }: ItemProps) {
   const [state, dispatch] = useReducer(reducer, initialState);
 

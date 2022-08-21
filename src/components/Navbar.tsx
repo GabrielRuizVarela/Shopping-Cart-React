@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { Icon } from '@iconify/react';
+import { Link } from 'react-router-dom';
+import Context from './context/Context';
 
-interface ItemProps {
-  logo: string;
-}
-
-function Navbar({ logo }: ItemProps) {
+function Navbar() {
+  const { logo } = useContext(Context);
   return (
     <div className="navbar">
       <div className="navbar-container">
@@ -14,10 +14,10 @@ function Navbar({ logo }: ItemProps) {
         </div>
         <div className="navbar-menu">
           <div className="navbar-menu-item">
-            <a href="#">Home</a>
+            <Link to="/">Home</Link>
           </div>
           <div className="navbar-menu-item">
-            <a href="#">About</a>
+            <Link to="/shop">Shop</Link>
           </div>
           <div className="navbar-menu-item">
             <a href="#">Contact</a>

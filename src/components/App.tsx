@@ -1,16 +1,22 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import React from 'react';
+import Home from '../pages/Home';
+import Shop from '../pages/Shop';
 import Item from './Item';
-import Navbar from './Navbar';
-import Footer from './Footer';
+
+// new context for logo
 
 function App() {
   return (
-    <div className="App">
-      <Navbar logo="logo" />
-      <Item title="Item 1" description="This is item 1" image="https://picsum.photos/200" price={10} />
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/shop" element={<Shop />}>
 
+          {/* <Route path="/:id" element={<Item />} /> */}
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

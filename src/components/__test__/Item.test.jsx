@@ -9,7 +9,7 @@ describe('Item', () => {
   it('renders desciption correctly', () => {
     const { getByText } = render(
       <Item
-        title="Item 1"
+        name="Item 1"
         description="This is item 1"
         image="https://picsum.photos/200"
         price={10}
@@ -21,7 +21,7 @@ describe('Item', () => {
   it('renders the title correctly', () => {
     const { getByText } = render(
       <Item
-        title="Item 1"
+        name="Item 1"
         description="This is item 1"
         image="https://picsum.photos/200"
         price={10}
@@ -33,7 +33,7 @@ describe('Item', () => {
   it('renders the price correctly', () => {
     const { getByText } = render(
       <Item
-        title="Item 1"
+        name="Item 1"
         description="This is item 1"
         image="https://picsum.photos/200"
         price={10}
