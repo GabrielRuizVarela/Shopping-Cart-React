@@ -5,6 +5,7 @@ const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 module.exports = {
   entry: './src/index.tsx',
   devtool: 'inline-source-map',
+  devServer: { historyApiFallback: true, contentBase: './' },
 
   output: {
     filename: 'bundle.js',

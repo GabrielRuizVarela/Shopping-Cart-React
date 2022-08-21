@@ -1,27 +1,30 @@
 import React, { useContext } from 'react';
-import Context from '../components/context/Context';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
+import { useParams } from 'react-router-dom';
 import Item from '../components/Item';
+import Navbar from '../components/Navbar';
+import Context from '../components/context/Context';
+import Footer from '../components/Footer';
 
-function Shop() {
+function ItemDetail() {
+  const { id } = useParams();
   const { items } = useContext(Context);
+  const item = items.find((element) => element.id === Number(id));
   return (
-    <div className="Shop">
+    <div className="ItemDetail">
       <Navbar />
-      {items.map((item) => (
+      {/* if item is not null then render item */}
+      {item && (
         <Item
-          key={item.id}
           id={item.id}
           name={item.name}
           price={item.price}
           description={item.description}
           image={item.image}
         />
-      ))}
+      )}
       <Footer />
     </div>
   );
 }
 
-export default Shop;
+export default ItemDetail;

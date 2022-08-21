@@ -1,12 +1,14 @@
 import React, { useReducer } from 'react';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { Icon } from '@iconify/react';
+import { Link } from 'react-router-dom';
 
 interface ItemProps {
   name: string;
   description: string;
   image: string;
   price: number;
+  id: number;
 }
 
 interface ItemState {
@@ -57,15 +59,19 @@ function reducer(state: ItemState, action: ItemAction): ItemState {
 }
 
 function Item({
-  name: title, description, image, price,
+  name: title, description, image, price, id,
 }: ItemProps) {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
-    <div className="item">
+    <div className="item" id={String(id)}>
       <img src={image} alt={title} />
       <div className="item-info">
-        <h3>{title}</h3>
+        <h3>
+          <Link to={`/shop/${id}`}>
+            {title}
+          </Link>
+        </h3>
         <p>{description}</p>
         <p>
           {`$${price}`}
