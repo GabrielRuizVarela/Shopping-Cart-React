@@ -1,12 +1,20 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useState } from 'react';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { Icon } from '@iconify/react';
 import { Link } from 'react-router-dom';
+import { nanoid } from 'nanoid';
+import '../styles/Item.scss';
 
 interface ItemProps {
   name: string;
-  description: string;
-  image: string;
+  description: {
+    color: string;
+    description: string;
+  }[];
+  colors: {
+    color: string;
+    image: string;
+  }[];
   price: number;
   id: number;
 }
@@ -22,8 +30,13 @@ const initialState: ItemState = {
 };
 
 type ItemAction = {
-  type: 'ADD_TO_CART' | 'REMOVE_FROM_CART' | 'INCREMENT' | 'DECREMENT' | 'ONCHANGE',
-  payload?: number
+  type:
+    | 'ADD_TO_CART'
+    | 'REMOVE_FROM_CART'
+    | 'INCREMENT'
+    | 'DECREMENT'
+    | 'ONCHANGE';
+  payload?: number;
 };
 
 function reducer(state: ItemState, action: ItemAction): ItemState {
@@ -58,24 +71,38 @@ function reducer(state: ItemState, action: ItemAction): ItemState {
   }
 }
 
-function Item({
-  name: title, description, image, price, id,
-}: ItemProps) {
+function Item({ name: title, description, colors, price, id }: ItemProps) {
   const [state, dispatch] = useReducer(reducer, initialState);
+  const [color, setColor] = useState(colors[0]);
 
   return (
     <div className="item" id={String(id)}>
-      <img src={image} alt={title} />
+      <img src={color.image} alt={title} />
       <div className="item-info">
         <h3>
-          <Link to={`/shop/${id}`}>
-            {title}
-          </Link>
+          <Link to={`/shop/${id}`}>{title}</Link>
         </h3>
-        <p>{description}</p>
+        <div className="colors">
+          {colors.map((buttonColor) => (
+            // eslint-disable-next-line jsx-a11y/control-has-associated-label
+            <button
+              type="button"
+              key={nanoid()}
+              className={
+                `${buttonColor.color} ${color.color === buttonColor.color ? 'active' : ''}`
+
+              }
+              onClick={() => setColor(buttonColor)}
+            />
+          ))}
+        </div>
         <p>
-          {`$${price}`}
+          {
+            description.find((element) => element.color === color.color)
+              ?.description
+          }
         </p>
+        <p>{`$${price}`}</p>
       </div>
       <div className="item-addToCart">
         <button
@@ -85,17 +112,19 @@ function Item({
             if (state.quantity > 0) {
               dispatch({ type: 'DECREMENT' });
             }
-          }}
-        >
+          }}>
           -
         </button>
         <input
           type="number"
           id="quantity"
           value={state.quantity}
-          onChange={
-          (e) => dispatch({ type: 'ONCHANGE', payload: (parseInt(e.target.value, 10) || 0) })
-         }
+          onChange={(e) =>
+            dispatch({
+              type: 'ONCHANGE',
+              payload: parseInt(e.target.value, 10) || 0,
+            })
+          }
         />
         <button
           type="button"
@@ -106,12 +135,16 @@ function Item({
               return;
             }
             dispatch({ type: 'ADD_TO_CART' });
-          }}
-        >
+          }}>
           Add to Cart
           <Icon icon="prime:shopping-cart" />
         </button>
-        <button type="button" id="plusButton" onClick={() => dispatch({ type: 'INCREMENT' })}>+</button>
+        <button
+          type="button"
+          id="plusButton"
+          onClick={() => dispatch({ type: 'INCREMENT' })}>
+          +
+        </button>
       </div>
     </div>
   );

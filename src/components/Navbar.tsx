@@ -20,9 +20,9 @@ function Navbar() {
             <Link to="/shop">Shop</Link>
           </div>
           <div className="navbar-menu-item">
-            <a href="#">
+            <Link to="/">
               <Icon icon="prime:shopping-cart" />
-            </a>
+            </Link>
           </div>
         </div>
       </div>

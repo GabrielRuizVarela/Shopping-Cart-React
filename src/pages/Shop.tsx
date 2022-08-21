@@ -5,7 +5,7 @@ import Footer from '../components/Footer';
 import Item from '../components/Item';
 
 function Shop() {
-  const { items } = useContext(Context);
+  const { items, description } = useContext(Context);
   return (
     <div className="Shop">
       <Navbar />
@@ -14,9 +14,9 @@ function Shop() {
           key={item.id}
           id={item.id}
           name={item.name}
+          colors={item.colors}
           price={item.price}
-          description={item.description}
-          image={item.image}
+          description={description}
         />
       ))}
       <Footer />

@@ -7,7 +7,7 @@ import Footer from '../components/Footer';
 
 function ItemDetail() {
   const { id } = useParams();
-  const { items } = useContext(Context);
+  const { items, description } = useContext(Context);
   const item = items.find((element) => element.id === Number(id));
   return (
     <div className="ItemDetail">
@@ -17,9 +17,9 @@ function ItemDetail() {
         <Item
           id={item.id}
           name={item.name}
+          colors={item.colors}
           price={item.price}
-          description={item.description}
-          image={item.image}
+          description={description}
         />
       )}
       <Footer />
