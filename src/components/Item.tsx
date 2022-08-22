@@ -1,5 +1,4 @@
 import React, { useReducer, useState } from 'react';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { Icon } from '@iconify/react';
 import { Link } from 'react-router-dom';
 import { nanoid } from 'nanoid';
@@ -88,10 +87,9 @@ function Item({ name: title, description, colors, price, id }: ItemProps) {
             <button
               type="button"
               key={nanoid()}
-              className={
-                `${buttonColor.color} ${color.color === buttonColor.color ? 'active' : ''}`
-
-              }
+              className={`${buttonColor.color} ${
+                color.color === buttonColor.color ? 'active' : ''
+              }`}
               onClick={() => setColor(buttonColor)}
             />
           ))}
@@ -112,7 +110,8 @@ function Item({ name: title, description, colors, price, id }: ItemProps) {
             if (state.quantity > 0) {
               dispatch({ type: 'DECREMENT' });
             }
-          }}>
+          }}
+        >
           -
         </button>
         <input
@@ -135,14 +134,16 @@ function Item({ name: title, description, colors, price, id }: ItemProps) {
               return;
             }
             dispatch({ type: 'ADD_TO_CART' });
-          }}>
+          }}
+        >
           Add to Cart
           <Icon icon="prime:shopping-cart" />
         </button>
         <button
           type="button"
           id="plusButton"
-          onClick={() => dispatch({ type: 'INCREMENT' })}>
+          onClick={() => dispatch({ type: 'INCREMENT' })}
+        >
           +
         </button>
       </div>
