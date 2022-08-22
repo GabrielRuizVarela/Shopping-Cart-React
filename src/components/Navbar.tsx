@@ -14,6 +14,10 @@ function Navbar() {
             <img src={logo} alt="logo" />
           </Link>
         </div>
+        <div className="navbar-search">
+          <input type="text" placeholder="Search" />
+          <Icon icon="fe:search" />
+        </div>
         <div className="navbar-menu-item">
           <Link to="/">Home</Link>
         </div>
