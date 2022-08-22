@@ -8,9 +8,10 @@ import miniGreen from '../../images/mini/Green.webp';
 import proGold from '../../images/pro/Gold.webp';
 import proSilver from '../../images/pro/Silver.webp';
 import proGraphite from '../../images/pro/Graphite.webp';
+import logo from '../../images/logo.svg'; 
 
 const Context = React.createContext({
-  logo: 'logo',
+  logo,
 
   description: [
     {

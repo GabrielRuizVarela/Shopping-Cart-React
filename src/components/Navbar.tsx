@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { Icon } from '@iconify/react';
 import { Link } from 'react-router-dom';
 import Context from './context/Context';
+import '../styles/Navbar.scss';
 
 function Navbar() {
   const { logo } = useContext(Context);
@@ -10,20 +10,20 @@ function Navbar() {
     <div className="navbar">
       <div className="navbar-container">
         <div className="navbar-logo">
-          <img src={logo} alt="logo" />
+          <Link to="/">
+            <img src={logo} alt="logo" />
+          </Link>
         </div>
-        <div className="navbar-menu">
-          <div className="navbar-menu-item">
-            <Link to="/">Home</Link>
-          </div>
-          <div className="navbar-menu-item">
-            <Link to="/shop">Shop</Link>
-          </div>
-          <div className="navbar-menu-item">
-            <Link to="/">
-              <Icon icon="prime:shopping-cart" />
-            </Link>
-          </div>
+        <div className="navbar-menu-item">
+          <Link to="/">Home</Link>
+        </div>
+        <div className="navbar-menu-item">
+          <Link to="/shop">Shop</Link>
+        </div>
+        <div className="navbar-menu-item">
+          <Link to="/">
+            <Icon icon="prime:shopping-cart" />
+          </Link>
         </div>
       </div>
     </div>
