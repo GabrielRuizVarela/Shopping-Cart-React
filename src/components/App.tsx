@@ -6,7 +6,7 @@ import ItemDetail from '../pages/ItemDetail';
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/Shopping-Cart-React" >
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/shop" element={<Shop />} />

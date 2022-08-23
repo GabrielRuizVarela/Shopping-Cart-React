@@ -64,10 +64,21 @@ module.exports = {
       template: './src/index.html',
       // favicon: "./src/images/favicon.ico",
     }),
-    new TsconfigPathsPlugin(),
-    new FaviconsWebpackPlugin('./src/images/logo.svg'),
+    // new TsconfigPathsPlugin(),
+    // new FaviconsWebpackPlugin('./src/images/logo.svg'),
   ],
-  devServer: {
-    historyApiFallback: true,
+  resolve: {
+    plugins: [
+      new TsconfigPathsPlugin({
+        baseUrl: __dirname,
+        extensions: [".js", ".ts", ".tsx"],
+      }),
+    ],
   },
+  devServer: {
+    historyApiFallback: {
+      rewrites: [{ from: /\//, to: '/404.html' }],
+    },
+  },
+
 };

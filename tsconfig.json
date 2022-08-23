@@ -9,7 +9,8 @@
     "lib": ["dom", "esnext"],
     "strict": true,
     "sourceMap": true,
-    "target": "esnext"
+    "target": "esnext",
+    "baseUrl": "https://gabrielruizvarela.github.io/Shopping-Cart-React/"
   },
   "exclude": ["node_modules", "build/**/*"],
   "include": ["src", "jest.config.js"]
