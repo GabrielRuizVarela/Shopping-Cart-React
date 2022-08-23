@@ -24,9 +24,9 @@ function Navbar() {
         <div className="navbar-menu-item">
           <Link to="/shop">Shop</Link>
         </div>
-        <div className="navbar-menu-item">
+        <div className="navbar-menu-item shop-icon">
           <Link to="/">
-            <Icon icon="prime:shopping-cart" />
+            <Icon icon="prime:shopping-cart" className="shop-icon" />
           </Link>
         </div>
       </div>

@@ -100,7 +100,7 @@ function Item({ name: title, description, colors, price, id }: ItemProps) {
               ?.description
           }
         </p>
-        <p>{`$${price}`}</p>
+        <p className="price">{`$${price}`}</p>
       </div>
       <div className="item-addToCart">
         <button
@@ -115,7 +115,8 @@ function Item({ name: title, description, colors, price, id }: ItemProps) {
           -
         </button>
         <input
-          type="number"
+          type="text"
+          pattern="[0-9]*"
           id="quantity"
           value={state.quantity}
           onChange={(e) =>
@@ -127,7 +128,14 @@ function Item({ name: title, description, colors, price, id }: ItemProps) {
         />
         <button
           type="button"
-          id="addToCardButton"
+          id="plusButton"
+          onClick={() => dispatch({ type: 'INCREMENT' })}
+        >
+          +
+        </button>
+        <button
+          type="button"
+          id="addToCartButton"
           onClick={() => {
             if (state.isAddedtoCart) {
               dispatch({ type: 'REMOVE_FROM_CART' });
@@ -138,13 +146,6 @@ function Item({ name: title, description, colors, price, id }: ItemProps) {
         >
           Add to Cart
           <Icon icon="prime:shopping-cart" />
-        </button>
-        <button
-          type="button"
-          id="plusButton"
-          onClick={() => dispatch({ type: 'INCREMENT' })}
-        >
-          +
         </button>
       </div>
     </div>

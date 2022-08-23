@@ -12,11 +12,12 @@ body,
 .home-page {
   min-width: 100vw;
   min-height: 100vh;
+  background-color: var(--color-Silver);
 }
 
 :root {
   font-family: 'Alumni Sans Pinstripe', sans-serif;
-  --color-Midnight: rgb(73, 65, 60);
+  --color-Midnight: rgb(27, 34, 42);
   --color-Blue: #002244;
   --color-Red: rgb(150, 19, 24);
   --color-Pink: rgb(240, 219, 211);

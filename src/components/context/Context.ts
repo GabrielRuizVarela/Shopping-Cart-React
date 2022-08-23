@@ -1,14 +1,13 @@
 import React from 'react';
-import miniMidnight from '../../images/mini/Midnight.webp';
-import miniBlue from '../../images/mini/Blue.webp';
-import miniRed from '../../images/mini/Red.webp';
-import miniPink from '../../images/mini/Pink.webp';
-import miniStarlight from '../../images/mini/Starlight.webp';
-import miniGreen from '../../images/mini/Green.webp';
-import proGold from '../../images/pro/Gold.webp';
-import proSilver from '../../images/pro/Silver.webp';
-import proGraphite from '../../images/pro/Graphite.webp';
-import logo from '../../images/logo.svg'; 
+import miniMidnight from '../../images/mini/Midnight.png';
+import miniBlue from '../../images/mini/Blue.png';
+import miniRed from '../../images/mini/Red.png';
+import miniPink from '../../images/mini/Pink.png';
+import miniStarlight from '../../images/mini/Starlight.png';
+import proSilver from '../../images/pro/Silver.png';
+import proGraphite from '../../images/pro/Graphite.png';
+import proGold from '../../images/pro/Gold.png';
+import logo from '../../images/logo.svg';
 
 const Context = React.createContext({
   logo,
@@ -40,9 +39,19 @@ const Context = React.createContext({
         "This is the second new color this year and just like how the Black variant was renamed to Midnight, the White variant has now been renamed to Starlight, with some small changes. The back isn't pure white now and is more like an off-white color with a creamish look. The edges of the phone lean more towards the silver color, similar to what it was on the white iPhone. ",
     },
     {
-      color: 'Green',
+      color: 'Silver',
       description:
-        'Green has arrived as the sixth color for the iPhone 13 series. Introduced in the March 2022 event, the Green color is quite interesting. It has a dark foresty hue for the main body with matching side rails, while the camera island takes on a lighter, pale green look. The iPhone is still as shiny as ever. ',
+        "This is the second new color this year and just like how the Black variant was renamed to Midnight, the White variant has now been renamed to Silver, with some small changes. The back isn't pure white now and is more like an off-white color with a creamish look. The edges of the phone lean more towards the silver color, similar to what it was on the white iPhone. ",
+    },
+    {
+      color: 'Graphite',
+      description:
+        'Graphite has arrived as the seventh color for the iPhone 13 series. Introduced in the March 2022 event, the Graphite color is quite interesting. It has a dark foresty hue for the main body with matching side rails, while the camera island takes on a lighter, pale green look. The iPhone is still as shiny as ever. ',
+    },
+    {
+      color: 'Gold',
+      description:
+        'Gold has arrived as the eighth color for the iPhone 13 series. Introduced in the March 2022 event, the Gold color is quite interesting. It has a dark foresty hue for the main body with matching side rails, while the camera island takes on a lighter, pale green look. The iPhone is still as shiny as ever. ',
     },
   ],
 
@@ -72,10 +81,6 @@ const Context = React.createContext({
           color: 'Starlight',
           image: miniStarlight,
         },
-        {
-          color: 'Green',
-          image: miniGreen,
-        },
       ],
     },
     {
@@ -103,10 +108,6 @@ const Context = React.createContext({
           color: 'Starlight',
           image: miniStarlight,
         },
-        {
-          color: 'Green',
-          image: miniGreen,
-        },
       ],
     },
     {
@@ -115,10 +116,6 @@ const Context = React.createContext({
       price: 1.0,
       colors: [
         {
-          color: 'Gold',
-          image: proGold,
-        },
-        {
           color: 'Silver',
           image: proSilver,
         },
@@ -126,36 +123,12 @@ const Context = React.createContext({
           color: 'Graphite',
           image: proGraphite,
         },
+        {
+          color: 'Gold',
+          image: proGold,
+        },
       ],
     },
-    // {
-    //   id: 3,
-    //   name: 'Item 3',
-    //   price: 3.00,
-    //   description: 'Item 3 description',
-    //   image: 'https://via.placeholder.com/150',
-    // },
-    // {
-    //   id: 4,
-    //   name: 'Item 4',
-    //   price: 4.00,
-    //   description: 'Item 4 description',
-    //   image: 'https://via.placeholder.com/150',
-    // },
-    // {
-    //   id: 5,
-    //   name: 'Item 5',
-    //   price: 5.00,
-    //   description: 'Item 5 description',
-    //   image: 'https://via.placeholder.com/150',
-    // },
-    // {
-    //   id: 6,
-    //   name: 'Item 6',
-    //   price: 6.00,
-    //   description: 'Item 6 description',
-    //   image: 'https://via.placeholder.com/150',
-    // },
   ],
 });
 

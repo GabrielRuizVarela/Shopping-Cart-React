@@ -48,6 +48,10 @@
   img {
     width: 1rem;
   }
+  .shop-icon{
+    display: grid;
+    align-items: flex-end;
+  }
   .navbar-search {
     display: flex;
     justify-content: center;
@@ -65,13 +69,8 @@
       height: 2rem;
       border: none;
       background-color: var(--color-Silver);
-      // color: var(--color-Starlight);
       font-size: 1.3rem;
       padding: 0.5rem;
-      // transform: scale(1) !important;
-      &:hover {
-        // transform: scale(1) !important;
-      }
     }
     &::after {
       bottom: -0.2rem !important;
