@@ -3,6 +3,9 @@
   grid-template-rows: auto 1fr auto;
 }
 .Home {
+  a {
+    text-decoration: none;
+  }
   h1 {
     position: relative;
     color: white;

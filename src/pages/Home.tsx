@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import animation from '../utils/animation';
@@ -16,7 +17,9 @@ function Home() {
           id="canvas"
           style={{ height: '50vh', width: '100vw', overflow: 'hidden' }}
         />
-        <h1>Welcome to my Fake Store</h1>
+        <Link to="/shop">
+          <h1>Welcome to my Fake Store</h1>
+        </Link>
         <div id="home-text">
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
