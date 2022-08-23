@@ -19,7 +19,7 @@
   "bugs": {
     "url": "https://github.com/GabrielRuizVarela/Shopping-Cart-React/issues"
   },
-  "homepage": "https://github.com/GabrielRuizVarela/Shopping-Cart-React#readme",
+  "homepage": "https://gabrielruizvarela.github.io/Shopping-Cart-React/",
   "dependencies": {
     "@babel/core": "^7.18.10",
     "@babel/preset-env": "^7.18.10",
@@ -52,6 +52,8 @@
     "eslint-plugin-jsx-a11y": "^6.6.1",
     "eslint-plugin-react": "^7.30.1",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "favicons": "^6.2.2",
+    "favicons-webpack-plugin": "^5.0.2",
     "gh-pages": "^4.0.0",
     "html-webpack-plugin": "^5.5.0",
     "jest": "^28.1.3",

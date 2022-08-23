@@ -1,11 +1,12 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 
 module.exports = {
   entry: './src/index.tsx',
   devtool: 'inline-source-map',
-  devServer: { historyApiFallback: true, contentBase: './' },
+  // devServer: { historyApiFallback: true, contentBase: './' },
 
   output: {
     filename: 'bundle.js',
@@ -61,8 +62,10 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',
+      // favicon: "./src/images/favicon.ico",
     }),
     new TsconfigPathsPlugin(),
+    new FaviconsWebpackPlugin('./src/images/logo.svg'),
   ],
   devServer: {
     historyApiFallback: true,
