@@ -18,6 +18,7 @@ function Navbar() {
           <input type="text" placeholder="Search" />
           <Icon icon="fe:search" />
         </div>
+        <span />
         <div className="navbar-menu-item">
           <Link to="/">Home</Link>
         </div>

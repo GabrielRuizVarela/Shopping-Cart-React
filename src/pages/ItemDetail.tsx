@@ -4,6 +4,7 @@ import Item from '../components/Item';
 import Navbar from '../components/Navbar';
 import Context from '../components/context/Context';
 import Footer from '../components/Footer';
+import '../styles/ItemDetail.scss';
 
 function ItemDetail() {
   const { id } = useParams();

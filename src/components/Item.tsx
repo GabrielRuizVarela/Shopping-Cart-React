@@ -1,7 +1,6 @@
 import React, { useReducer, useState } from 'react';
 import { Icon } from '@iconify/react';
 import { Link } from 'react-router-dom';
-import { nanoid } from 'nanoid';
 import '../styles/Item.scss';
 
 interface ItemProps {
@@ -86,7 +85,7 @@ function Item({ name: title, description, colors, price, id }: ItemProps) {
             // eslint-disable-next-line jsx-a11y/control-has-associated-label
             <button
               type="button"
-              key={nanoid()}
+              key={`${title}-${buttonColor.color}`}
               className={`${buttonColor.color} ${
                 color.color === buttonColor.color ? 'active' : ''
               }`}
@@ -144,7 +143,6 @@ function Item({ name: title, description, colors, price, id }: ItemProps) {
             dispatch({ type: 'ADD_TO_CART' });
           }}
         >
-          Add to Cart
           <Icon icon="prime:shopping-cart" />
         </button>
       </div>

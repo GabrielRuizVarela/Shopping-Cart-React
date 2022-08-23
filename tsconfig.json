@@ -1,22 +1,16 @@
 {
   "compilerOptions": {
+    "outDir": "build",
     "esModuleInterop": true,
     "jsx": "react",
     "module": "esnext",
     "moduleResolution": "node",
-    "allowJs": true,
-    "lib": [
-      "dom",
-      "esnext"
-    ],
+    "allowJs": false,
+    "lib": ["dom", "esnext"],
     "strict": true,
     "sourceMap": true,
-    "target": "esnext",
+    "target": "esnext"
   },
-  "exclude": [
-    "node_modules"
-  ],
-  "include": [
-    "src"
-  ]
+  "exclude": ["node_modules", "build/**/*"],
+  "include": ["src", "jest.config.js"]
 }

@@ -1,0 +1,12 @@
+.ItemDetail {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  .item {
+    margin-top: 2rem;
+    justify-self: center;
+    align-self: center;
+    max-width: 50%;
+  }
+  height: 100vh;
+  width: 100vw;
+}
