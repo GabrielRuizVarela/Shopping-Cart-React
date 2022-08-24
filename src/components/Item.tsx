@@ -62,7 +62,7 @@ function reducer(state: ItemState, action: ItemAction): ItemState {
     case 'ONCHANGE':
       return {
         ...state,
-        quantity: action.payload!,
+        quantity: action.payload || 0,
       };
     default:
       return state;
