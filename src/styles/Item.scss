@@ -50,6 +50,10 @@
   justify-items: center;
   align-items: flex-start;
   gap: 1rem;
+  @media (max-width: 768px) {
+    grid-template-columns: minmax(300px, 1fr);
+    // justify-self: start;
+  }
   img {
     max-width: 200px;
     height: auto;
@@ -157,5 +161,14 @@
         transform-origin: left;
       }
     }
+  }
+}
+
+.item-info {
+  display: grid;
+  grid-auto-flow: row;
+  @media (max-width: 768px) {
+    justify-content: center;
+    justify-items: center;
   }
 }

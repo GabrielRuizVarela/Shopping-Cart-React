@@ -1,11 +1,12 @@
 .shop-page {
   display: grid;
   grid-template-rows: auto 1fr auto;
+  grid-template-columns: minmax(200px, 100vw);
 }
 
 .Shop {
-  padding: clamp(0.5rem, 2rem, 4rem);
+  padding: clamp(0.5rem, 1rem, 4rem);
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   gap: 4rem;
 }
